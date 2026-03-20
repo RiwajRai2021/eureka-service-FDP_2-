@@ -1,0 +1,18 @@
+.container {
+    max-width: 600px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 0.5srem;
+}
+
+.details-container {
+    background: antiquewhite;
+    padding: 5%;
+    margin-bottom: 3%;
+}
+
+.nav-btn {
+    margin-left: 6%;
+}

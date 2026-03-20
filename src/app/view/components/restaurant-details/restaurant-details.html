@@ -1,0 +1,45 @@
+<div>
+    <div class="container mt-5">
+        <div class="details-container">
+            <h2 class="text-center mb-4 title">Manager Resturant Details</h2>
+            <div class="mb-3">
+                <label for="dropdown" class="form-label">Select Resturant: </label>
+                <select id="dropdown" class="form-select" [(ngModel)]="selectedItem" (change)="onDropdownChange()">
+                    <option value="" disabled>Choose any one</option>
+                    <option *ngFor="let resturant of resturants" [value]="resturant.id">{{ resturant.name }}</option>
+                </select>
+            </div>
+    
+            <div class="mb-4">
+                <button class="btn btn-primary new-btn" (click)="addNew()">Add New</button>
+                <button class="btn btn-primary nav-btn" (click)="navigate()">View Restaurents List</button>
+            </div>
+        </div>
+
+        <div *ngIf="selectedResturant" class="card p-4">
+            <h3 class="card-title">
+                {{ isNewItem ? 'Add Resturant' : 'View/Edit Resturant' }}
+            </h3>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name : </label>
+                    <input id="name" type="text" class="form-control" [(ngModel)]="selectedResturant.name" name="name" (input)="onInputChange()" />
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address : </label>
+                    <input id="address" type="text" class="form-control" [(ngModel)]="selectedResturant.address" name="address" (input)="onInputChange()" />
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description : </label>
+                    <input id="description" type="text" class="form-control" [(ngModel)]="selectedResturant.restaurantDescription" name="description" (input)="onInputChange()" />
+                </div>
+                <div class="mb-3">
+                    <label for="city" class="form-label">City : </label>
+                    <input id="city" type="text" class="form-control" [(ngModel)]="selectedResturant.city" name="address" (input)="onInputChange()" />
+                </div>
+
+                <button class="btn btn-success" type="button" (click)="saveDetails()" [disabled]="!isEdited">Save</button>
+            </form>
+        </div>
+    </div>
+</div>

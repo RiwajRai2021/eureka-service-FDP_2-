@@ -1,0 +1,66 @@
+/* ============================
+   HEADER (CENTERED, NO OVERLAP)
+============================ */
+
+.header {
+  background-color: rgba(255, 165, 0, 0.4);
+ /* orange with 60% opacity */
+  color: white;
+  padding: 24px 0;
+  margin: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: static;
+  z-index: auto;
+}
+
+
+/* Use grid to center title and keep avatar on the right */
+.header-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto; /* <-- THIS is the magic */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+/* Title in the center column */
+.header-title {
+  grid-column: 2;
+  justify-self: start;   /* move title to the left side of its column */
+  margin-left: 0px;     /* adjust this number to move it more or less left */
+  margin: 0;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+}
+
+
+
+/* Avatar on the right column */
+.header-nav {
+  grid-column: 3;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.username {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
